@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -43,4 +44,20 @@ func ReadFile(path string) []string {
 	}
 
 	return lines
+}
+
+func IntRange(x, y int) []int {
+	if x > y {
+		return []int{}
+	}
+
+	r := make([]int, y-x+1)
+	for i := range r {
+		r[i] = x + i
+	}
+	return r
+}
+
+func IntPow(x, y int) int {
+	return int(math.Pow(float64(x), float64(y)))
 }
