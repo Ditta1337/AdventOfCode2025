@@ -47,15 +47,30 @@ func ReadFile(path string) []string {
 }
 
 func IntRange(x, y int) []int {
-	if x > y {
-		return []int{}
+	if x == y {
+		return []int{x}
 	}
 
-	r := make([]int, y-x+1)
-	for i := range r {
-		r[i] = x + i
+	step := 1
+	if x > y {
+		step = -1
 	}
+
+	length := Abs(y-x) + 1
+	r := make([]int, length)
+
+	for i := 0; i < length; i++ {
+		r[i] = x + i*step
+	}
+
 	return r
+}
+
+func Abs(n int) int {
+	if n < 0 {
+		return -n
+	}
+	return n
 }
 
 func IntPow(x, y int) int {
