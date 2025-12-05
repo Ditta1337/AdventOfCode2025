@@ -61,3 +61,9 @@ func IntRange(x, y int) []int {
 func IntPow(x, y int) int {
 	return int(math.Pow(float64(x), float64(y)))
 }
+
+func Assert(condition bool, failMessage string) {
+	if !condition {
+		panic(failMessage)
+	}
+}
